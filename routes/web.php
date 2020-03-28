@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function() {
+    return view('layouts.app');
+});
+
 Route::middleware(['web', 'guest'])->group(function() {
     Route::get('login', 'LoginController@showLoginForm')->middleware(['web', 'guest'])->name('login');
     Route::post('login', 'LoginController@login')->middleware(['web', 'guest'])->name('login.attempt');
